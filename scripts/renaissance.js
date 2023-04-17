@@ -8,8 +8,8 @@ var turns = 0;
 
 window.onload = function() {
     let counter = 1;
-    let lastImage = "images/bar19.jpg";
-    let images = ["images/bar11.jpg", "images/bar12.jpg", "images/bar13.jpg", "images/bar14.jpg", "images/bar15.jpg", "images/bar16.jpg", "images/bar17.jpg", "images/bar18.jpg"];
+    let lastImage = "images/ren19.jpg";
+    let images = ["images/ren11.jpg", "images/ren12.jpg", "images/ren13.jpg", "images/ren14.jpg", "images/ren15.jpg", "images/ren16.jpg", "images/ren17.jpg", "images/ren18.jpg"];
     images.sort(() => Math.random() - 0.5);
     images.push(lastImage);
 
@@ -54,7 +54,7 @@ function dragdrop() {
 }
 
 function dragend() {
-    if (!otherTile.src.includes("images/bar19.jpg")) {
+    if (!otherTile.src.includes("images/ren19.jpg")) {
         return;
     }
 
