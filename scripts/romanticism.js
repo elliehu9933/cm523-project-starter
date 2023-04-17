@@ -8,8 +8,8 @@ var turns = 0;
 
 window.onload = function() {
     let counter = 1;
-    let lastImage = "images/rom19.jpg";
-    let images = ["images/rom11.jpg", "images/rom12.jpg", "images/rom13.jpg", "images/rom14.jpg", "images/rom15.jpg", "images/rom16.jpg", "images/rom17.jpg", "images/rom18.jpg"];
+    let lastImage = "../images/rom19.jpg";
+    let images = ["../images/rom11.jpg", "../images/rom12.jpg", "../images/rom13.jpg", "../images/rom14.jpg", "../images/rom15.jpg", "../images/rom16.jpg", "../images/rom17.jpg", "../images/rom18.jpg"];
     images.sort(() => Math.random() - 0.5);
     images.push(lastImage);
 
@@ -35,26 +35,26 @@ window.onload = function() {
 
 function dragstart() {
     currTile = this; //this refers to the img tile being dragged
-}
+};
 
 function dragover(e) {
     e.preventDefault();
-}
+};
 
 function dragenter(e) {
     e.preventDefault();
-}
+};
 
 function dragleave(e) {
     e.preventDefault();
-}
+};
 
 function dragdrop() {
     otherTile = this; //this refers to the img tile being dropped on
-}
+};
 
 function dragend() {
-    if (!otherTile.src.includes("images/rom19.jpg")) {
+    if (!otherTile.src.includes("../images/rom19.jpg")) {
         return;
     }
 
@@ -84,6 +84,4 @@ function dragend() {
         turns += 1;
         document.getElementById("turns").innerText = turns;
     }
-
-
-}
+};
