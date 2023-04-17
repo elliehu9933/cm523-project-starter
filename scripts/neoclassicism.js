@@ -8,8 +8,8 @@ var turns = 0;
 
 window.onload = function() {
     let counter = 1;
-    let lastImage = "images/neo19.jpg";
-    let images = ["images/neo11.jpg", "images/neo12.jpg", "images/neo13.jpg", "images/neo14.jpg", "images/neo15.jpg", "images/neo16.jpg", "images/neo17.jpg", "images/neo18.jpg"];
+    let lastImage = "../images/neo19.jpg";
+    let images = ["../images/neo11.jpg", "../images/neo12.jpg", "../images/neo13.jpg", "../images/neo14.jpg", "../images/neo15.jpg", "../images/neo16.jpg", "../images/neo17.jpg", "../images/neo18.jpg"];
     images.sort(() => Math.random() - 0.5);
     images.push(lastImage);
 
@@ -35,26 +35,26 @@ window.onload = function() {
 
 function dragstart() {
     currTile = this; //this refers to the img tile being dragged
-}
+};
 
 function dragover(e) {
     e.preventDefault();
-}
+};
 
 function dragenter(e) {
     e.preventDefault();
-}
+};
 
 function dragleave(e) {
     e.preventDefault();
-}
+};
 
 function dragdrop() {
     otherTile = this; //this refers to the img tile being dropped on
-}
+};
 
 function dragend() {
-    if (!otherTile.src.includes("images/neo19.jpg")) {
+    if (!otherTile.src.includes("../images/neo19.jpg")) {
         return;
     }
 
@@ -86,4 +86,4 @@ function dragend() {
     }
 
 
-}
+};
