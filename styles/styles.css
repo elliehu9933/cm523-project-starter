@@ -1,9 +1,41 @@
 /* ===== YOUR CSS GOES HERE ===== */
 /* ===== START WITH GLOBAL STYLES THEN USE MEDIA QUERIES FOR LAYOUT ADJUSTMENTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+:root {
+    --dark-red: #400303;
+    --bright-red: #5B1212;
+    --yellow: #BF9825;
+    --font-size: 16px;
+    --line-height: 1.5;
+  }
+
 
 body {
-    background: magenta;
+    text-align: center;
+    background-color: var(--dark-red);
 }
-p {
-    font-size: 2em;
+
+#board {
+    width: 360px;
+    height: 360px;
+    background-color: var(--bright-red);
+    border: 10px solid var(--yellow);
+
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#board img {
+    width: 118px;
+    height: 118px;
+    border: 1px solid var(--yellow);
+}
+
+h1 {
+    color: var(--yellow);
+    text-transform: uppercase;
+    font-family:'PT Sans Narrow', sans-serif;
 }
