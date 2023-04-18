@@ -1,5 +1,15 @@
 /* ===== YOUR CSS GOES HERE ===== */
 /* ===== START WITH GLOBAL STYLES THEN USE MEDIA QUERIES FOR LAYOUT ADJUSTMENTS ===== */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
 
 :root {
@@ -8,34 +18,74 @@
     --yellow: #BF9825;
     --font-size: 16px;
     --line-height: 1.5;
-  }
-
+}
 
 body {
-    text-align: center;
-    background-color: var(--dark-red);
+  padding: 40px;
+  background-color: var(--dark-red);
 }
 
-#board {
-    width: 360px;
-    height: 360px;
-    background-color: var(--bright-red);
-    border: 10px solid var(--yellow);
+.header {
+  color: var(--yellow);
+  text-transform: uppercase;
+  font-family:'PT Sans Narrow', sans-serif;
+  font-size: 60px;
 
-    margin: 0 auto;
-    margin-top: 100px;
-    display: flex;
-    flex-wrap: wrap;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  justify-items: center;
+  align-items: center;
 }
 
-#board img {
-    width: 118px;
-    height: 118px;
-    border: 1px solid var(--yellow);
+.footer {
+  color: var(--yellow);
+  text-transform: uppercase;
+  font-family:'PT Sans Narrow', sans-serif;
+  font-size: 30px;
+  justify-items: center;
+  align-items: center;
+
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
-h1 {
-    color: var(--yellow);
+.art-periods-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 1fr 1fr 100px;
+  gap: 10px;
+  padding: 10px;
+  justify-items: center;
+  align-items: center;
+
+  font-family:'PT Sans Narrow', sans-serif;
+  font-weight: bold;
+}
+
+.art-periods-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.art-periods-box h4{
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
     text-transform: uppercase;
-    font-family:'PT Sans Narrow', sans-serif;
+    color: var(--yellow);
+    font-size: 30px;
+}
+
+@media screen and (min-width: 601px) {
+  
+	.art-periods-container {
+
+	}
+
+	.art-periods-box img {
+
+	}
 }
