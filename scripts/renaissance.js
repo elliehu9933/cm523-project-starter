@@ -1,10 +1,10 @@
-var rows = 3;
-var columns = 3;
+let rows = 3;
+let columns = 3;
 
-var currTile;
-var otherTile; //blank tile
+let currTile;
+let otherTile; //blank tile
 
-var turns = 0;
+let turns = 0;
 
 window.onload = function() {
     let counter = 1;
@@ -54,7 +54,7 @@ function dragdrop() {
 };
 
 function dragend() {
-    if (!otherTile.src.includes("../images/ren19.jpg")) {
+    if (!otherTile.src.includes("/images/ren19.jpg")) {
         return;
     }
 

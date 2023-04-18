@@ -1,10 +1,10 @@
-var rows = 3;
-var columns = 3;
+let rows = 3;
+let columns = 3;
 
-var currTile;
-var otherTile; //blank tile
+let currTile;
+let otherTile; //blank tile
 
-var turns = 0;
+let turns = 0;
 
 window.onload = function() {
     let counter = 1;
@@ -34,6 +34,7 @@ window.onload = function() {
 };
 
 function dragstart() {
+    console.log('dragstart');
     currTile = this; //this refers to the img tile being dragged
 };
 
@@ -51,13 +52,16 @@ function dragleave(e) {
 
 function dragdrop() {
     otherTile = this; //this refers to the img tile being dropped on
+    console.log(otherTile.src);
 };
 
 function dragend() {
-    if (!otherTile.src.includes("../images/bar19.jpg")) {
+    console.log('dragend ');
+
+    if (!otherTile.src.includes('/images/bar19.jpg')) {
+        console.log('??');
         return;
     }
-
     let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
     let r = parseInt(currCoords[0]);
     let c = parseInt(currCoords[1]);
