@@ -7,7 +7,7 @@ let otherTile; //blank tile
 let turns = 0;
 
 window.onload = function() {
-    let lastImage = "../images/neo19.jpg";
+    let lastImage = "../images/darkred.png";
     images = ["../images/neo11.jpg", "../images/neo12.jpg", "../images/neo13.jpg", "../images/neo14.jpg", "../images/neo15.jpg", "../images/neo16.jpg", "../images/neo17.jpg", "../images/neo18.jpg"];
     loadImages(images, lastImage);
 
@@ -80,7 +80,7 @@ function dragdrop() {
 function dragend() {
     console.log('dragend ');
 
-    if (!otherTile.src.includes('/images/neo19.jpg')) {
+    if (!otherTile.src.includes('../images/darkred.png')) {
         return;
     }
     let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]

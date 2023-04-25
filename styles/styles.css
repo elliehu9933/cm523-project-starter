@@ -23,7 +23,7 @@ html {
 
 body {
   background-color: var(--dark-red);
-  padding: 40px;
+  padding: 60px;
 }
 
 #board {
@@ -33,7 +33,7 @@ body {
   border: 10px solid var(--yellow);
 
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -52,15 +52,24 @@ h1 {
   font-family: 'Fredericka the Great', cursive;
   font-size: 60px;
   text-align: center;
+  margin-bottom: 0px;
 }
 
-.footer {
+h2 {
   color: var(--yellow);
-  text-transform: uppercase;
-  font-family:'PT Sans Narrow', sans-serif;
+  font-weight: bold;
+  font-family: 'Fredericka the Great', cursive;
   font-size: 30px;
-  justify-items: center;
-  align-items: center;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+
+h4 {
+  margin-bottom: 30px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 24px;
+  font-weight: bold; 
 }
 
 a {
@@ -70,22 +79,60 @@ a {
     font-size: 30px;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--yellow);
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: 'Fredericka the Great', cursive;
+  font-weight: bold;
+}
+
+nav a:hover {
+
+}
+
 .carousel-item {
   text-align: center;
   background-color: var(--bright-red);
   border: 10px solid var(--yellow);
+  box-shadow: 0px 0px 20px var(--yellow);
 }
 
-img {
+.carousel-item:hover {
+  background-color: var(--yellow);
+  transform: scale(1.03); 
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-item:hover h4 {
+  color: var(--bright-red);
+  transform: scale(1.03); 
+}
+
+.art-periods-image {
+  width: 50%; 
+  height: auto; 
   display: block;
   margin: auto;
   text-align: center;
-  box-shadow:0px 0px 30px var(--yellow);
-}
-
-h4 {
-  margin-bottom: 15px;
-  font-family: 'PT Sans Narrow', sans-serif;
+  box-shadow: 0px 0px 30px var(--yellow);
 }
 
 #slick-slide04.slick-slide.slick-active {
@@ -116,3 +163,19 @@ button:hover {
   color: var(--yellow);
 }
 
+footer {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+}
+
+.footer {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 30px;
+  color: var(--yellow);
+  text-decoration: none;
+}
+
+.footer:hover {
+  text-decoration: underline;
+}

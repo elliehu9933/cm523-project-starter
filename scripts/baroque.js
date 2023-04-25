@@ -7,7 +7,7 @@ let otherTile; //blank tile
 let turns = 0;
 
 window.onload = function() {
-    let lastImage = "../images/bar19.jpg";
+    let lastImage = "../images/darkred.png";
     images = ["../images/bar11.jpg", "../images/bar12.jpg", "../images/bar13.jpg", "../images/bar14.jpg", "../images/bar15.jpg", "../images/bar16.jpg", "../images/bar17.jpg", "../images/bar18.jpg"];
     loadImages(images, lastImage);
 
@@ -80,7 +80,7 @@ function dragdrop() {
 function dragend() {
     console.log('dragend ');
 
-    if (!otherTile.src.includes('/images/bar19.jpg')) {
+    if (!otherTile.src.includes('/images/darkred.png')) {
         return;
     }
     let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
