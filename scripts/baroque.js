@@ -7,12 +7,34 @@ let otherTile; //blank tile
 let turns = 0;
 
 window.onload = function() {
-    let counter = 1;
     let lastImage = "../images/bar19.jpg";
-    let images = ["../images/bar11.jpg", "../images/bar12.jpg", "../images/bar13.jpg", "../images/bar14.jpg", "../images/bar15.jpg", "../images/bar16.jpg", "../images/bar17.jpg", "../images/bar18.jpg"];
+    images = ["../images/bar11.jpg", "../images/bar12.jpg", "../images/bar13.jpg", "../images/bar14.jpg", "../images/bar15.jpg", "../images/bar16.jpg", "../images/bar17.jpg", "../images/bar18.jpg"];
+    loadImages(images, lastImage);
+
+    document.getElementById("loadButton1").addEventListener("click", function() {
+        images = ["../images/bar11.jpg", "../images/bar12.jpg", "../images/bar13.jpg", "../images/bar14.jpg", "../images/bar15.jpg", "../images/bar16.jpg", "../images/bar17.jpg", "../images/bar18.jpg"];
+        loadImages(images, lastImage);
+    });
+    
+    document.getElementById("loadButton2").addEventListener("click", function() {
+        images = ["../images/bar21.jpg", "../images/bar22.jpg", "../images/bar23.jpg", "../images/bar24.jpg", "../images/bar25.jpg", "../images/bar26.jpg", "../images/bar27.jpg", "../images/bar28.jpg"];
+        loadImages(images, lastImage);
+    });
+    
+    document.getElementById("loadButton3").addEventListener("click", function() {
+        images = ["../images/bar31.jpg", "../images/bar32.jpg", "../images/bar33.jpg", "../images/bar34.jpg", "../images/bar35.jpg", "../images/bar36.jpg", "../images/bar37.jpg", "../images/bar38.jpg"];
+        loadImages(images, lastImage);
+    });
+};
+
+function loadImages(images, lastImage) {
+    let board = document.getElementById("board");
+    board.innerHTML = '';
+
     images.sort(() => Math.random() - 0.5);
     images.push(lastImage);
 
+    let counter = 1;
     for (let r=0; r < rows; r++) {
         for (let c=0; c < columns; c++) {
             
@@ -31,10 +53,11 @@ window.onload = function() {
             counter++;
         }
     }
+    turns = 0;
+    document.getElementById("turns").innerText = turns;
 };
 
 function dragstart() {
-    console.log('dragstart');
     currTile = this; //this refers to the img tile being dragged
 };
 
@@ -52,14 +75,12 @@ function dragleave(e) {
 
 function dragdrop() {
     otherTile = this; //this refers to the img tile being dropped on
-    console.log(otherTile.src);
 };
 
 function dragend() {
     console.log('dragend ');
 
     if (!otherTile.src.includes('/images/bar19.jpg')) {
-        console.log('??');
         return;
     }
     let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
@@ -88,6 +109,4 @@ function dragend() {
         turns += 1;
         document.getElementById("turns").innerText = turns;
     }
-
-
 };

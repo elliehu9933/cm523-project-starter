@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- PUT A TITLE IN HERE -->
     <title>Masterpiece Match</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
     <!-- PUT A DESCRIPTION IN HERE -->
     <meta name="description" content="slide the puzzle to learn about the history of masterpiece paintings from different art periods" />
     <!-- LINK TO NORMALIZE (FOR CONSISTENCY) -->
@@ -14,38 +15,41 @@
     <!-- LINK TO YOUR STYLES -->
     <link rel="stylesheet" href="./styles/styles.css" />
     <!-- LINK TO EXTERNAL JS LIBRARIES HERE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <!-- LINK TO YOUR JS HERE. NOTE THE DEFER ATTRIBUTE. -->
-    <script src="../scripts/homepagescript.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="./scripts/homepagescript.js" defer></script>
   </head>
   <body>
-      <main>
-        <div class="art-periods-container">
-          <div class="header">MASTERPIECE MATCH</div>
-          <div class="art-periods-box">
-            <a href="./renaissance.html">
-              <h4>Renainssance</h4>
-              <img src="./images/renaissance-1.1.jpg" alt="renaissance paintings" class="art-periods-image">
-            </a>
-          </div>
-          <div class="art-periods-box">
-            <a href="./baroque.html">
-              <h4>Baroque</h4>
-              <img src="./images/baroque-1.1.jpeg" alt="baroque paintings" class="art-periods-image">
-            </a>
-          </div>
-          <div class="art-periods-box">
-            <a href="./neoclassicism.html">
-              <h4>Neoclassicism</h4>
-              <img src="./images/neoclassicism-1.1.jpeg" alt="neoclassicism paintings" class="art-periods-image">
-            </a>
-          </div>
-          <div class="art-periods-box">
-            <a href="./romanticism.html">
-              <h4>Romanticism</h4>
-              <img src="./images/romanticism-1.1.jpeg" alt="romanticism paintings" class="art-periods-image">
-            </a>
-        </div>
-        <div class="footer">About, Wireframe, UX report</div>
-      </main>
+    <h1>
+      MASTERPIECE MATCH
+    </h1>
+    <div class="carousel">
+      <div class="carousel-item">
+        <a href="./renaissance.html">
+          <h4>Renainssance</h4>
+          <img src="./images/renaissance-1.1.jpg" alt="renaissance paintings" class="art-periods-image">
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="./baroque.html">
+          <h4>Baroque</h4>
+          <img src="./images/baroque-1.1.jpeg" alt="baroque paintings" class="art-periods-image">
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="./neoclassicism.html">
+          <h4>Neoclassicism</h4>
+          <img src="./images/neoclassicism-1.1.jpeg" alt="neoclassicism paintings" class="art-periods-image">
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="./romanticism.html">
+          <h4>Romanticism</h4>
+          <img src="./images/romanticism-1.1.jpeg" alt="romanticism paintings" class="art-periods-image">
+        </a>
+    </div>
     </body>
 </html>

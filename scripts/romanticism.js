@@ -7,12 +7,34 @@ let otherTile; //blank tile
 let turns = 0;
 
 window.onload = function() {
-    let counter = 1;
     let lastImage = "../images/rom19.jpg";
-    let images = ["../images/rom11.jpg", "../images/rom12.jpg", "../images/rom13.jpg", "../images/rom14.jpg", "../images/rom15.jpg", "../images/rom16.jpg", "../images/rom17.jpg", "../images/rom18.jpg"];
+    images = ["../images/rom11.jpg", "../images/rom12.jpg", "../images/rom13.jpg", "../images/rom14.jpg", "../images/rom15.jpg", "../images/rom16.jpg", "../images/rom17.jpg", "../images/rom18.jpg"];
+    loadImages(images, lastImage);
+
+    document.getElementById("loadButton1").addEventListener("click", function() {
+        images = ["../images/rom11.jpg", "../images/rom12.jpg", "../images/rom13.jpg", "../images/rom14.jpg", "../images/rom15.jpg", "../images/rom16.jpg", "../images/rom17.jpg", "../images/rom18.jpg"];
+        loadImages(images, lastImage);
+    });
+    
+    document.getElementById("loadButton2").addEventListener("click", function() {
+        images = ["../images/rom21.jpg", "../images/rom22.jpg", "../images/rom23.jpg", "../images/rom24.jpg", "../images/rom25.jpg", "../images/rom26.jpg", "../images/rom27.jpg", "../images/rom28.jpg"];
+        loadImages(images, lastImage);
+    });
+    
+    document.getElementById("loadButton3").addEventListener("click", function() {
+        images = ["../images/rom31.jpg", "../images/rom32.jpg", "../images/rom33.jpg", "../images/rom34.jpg", "../images/rom35.jpg", "../images/rom36.jpg", "../images/rom37.jpg", "../images/rom38.jpg"];
+        loadImages(images, lastImage);
+    });
+};
+
+function loadImages(images, lastImage) {
+    let board = document.getElementById("board");
+    board.innerHTML = '';
+
     images.sort(() => Math.random() - 0.5);
     images.push(lastImage);
 
+    let counter = 1;
     for (let r=0; r < rows; r++) {
         for (let c=0; c < columns; c++) {
             
@@ -31,6 +53,8 @@ window.onload = function() {
             counter++;
         }
     }
+    turns = 0;
+    document.getElementById("turns").innerText = turns;
 };
 
 function dragstart() {
@@ -54,10 +78,11 @@ function dragdrop() {
 };
 
 function dragend() {
-    if (!otherTile.src.includes("/images/rom19.jpg")) {
+    console.log('dragend ');
+
+    if (!otherTile.src.includes('/images/rom19.jpg')) {
         return;
     }
-
     let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
     let r = parseInt(currCoords[0]);
     let c = parseInt(currCoords[1]);

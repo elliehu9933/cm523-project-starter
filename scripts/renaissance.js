@@ -7,12 +7,34 @@ let otherTile; //blank tile
 let turns = 0;
 
 window.onload = function() {
-    let counter = 1;
     let lastImage = "../images/ren19.jpg";
-    let images = ["../images/ren11.jpg", "../images/ren12.jpg", "../images/ren13.jpg", "../images/ren14.jpg", "../images/ren15.jpg", "../images/ren16.jpg", "../images/ren17.jpg", "../images/ren18.jpg"];
+    images = ["../images/ren11.jpg", "../images/ren12.jpg", "../images/ren13.jpg", "../images/ren14.jpg", "../images/ren15.jpg", "../images/ren16.jpg", "../images/ren17.jpg", "../images/ren18.jpg"];
+    loadImages(images, lastImage);
+
+    document.getElementById("loadButton1").addEventListener("click", function() {
+        images = ["../images/ren11.jpg", "../images/ren12.jpg", "../images/ren13.jpg", "../images/ren14.jpg", "../images/ren15.jpg", "../images/ren16.jpg", "../images/ren17.jpg", "../images/ren18.jpg"];
+        loadImages(images, lastImage);
+    });
+    
+    document.getElementById("loadButton2").addEventListener("click", function() {
+        images = ["../images/ren21.jpg", "../images/ren22.jpg", "../images/ren23.jpg", "../images/ren24.jpg", "../images/ren25.jpg", "../images/ren26.jpg", "../images/ren27.jpg", "../images/ren28.jpg"];
+        loadImages(images, lastImage);
+    });
+    
+    document.getElementById("loadButton3").addEventListener("click", function() {
+        images = ["../images/ren31.jpg", "../images/ren32.jpg", "../images/ren33.jpg", "../images/ren34.jpg", "../images/ren35.jpg", "../images/ren36.jpg", "../images/ren37.jpg", "../images/ren38.jpg"];
+        loadImages(images, lastImage);
+    });
+};
+
+function loadImages(images, lastImage) {
+    let board = document.getElementById("board");
+    board.innerHTML = '';
+
     images.sort(() => Math.random() - 0.5);
     images.push(lastImage);
 
+    let counter = 1;
     for (let r=0; r < rows; r++) {
         for (let c=0; c < columns; c++) {
             
@@ -31,6 +53,8 @@ window.onload = function() {
             counter++;
         }
     }
+    turns = 0;
+    document.getElementById("turns").innerText = turns;
 };
 
 function dragstart() {
@@ -54,10 +78,11 @@ function dragdrop() {
 };
 
 function dragend() {
-    if (!otherTile.src.includes("/images/ren19.jpg")) {
+    console.log('dragend ');
+
+    if (!otherTile.src.includes('/images/ren19.jpg')) {
         return;
     }
-
     let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
     let r = parseInt(currCoords[0]);
     let c = parseInt(currCoords[1]);
@@ -84,6 +109,4 @@ function dragend() {
         turns += 1;
         document.getElementById("turns").innerText = turns;
     }
-
-
 };
