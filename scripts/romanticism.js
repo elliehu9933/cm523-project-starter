@@ -69,7 +69,7 @@ function generatePuzzle() {
     }
 
     for (let i = 0; i < rows * columns; i++) {
-        images.push("../images/" + prefix + (start + i).toString() + ".jpg");
+        images.push("./images/" + prefix + (start + i).toString() + ".jpg");
     }
 
     loadImages(images);
@@ -204,11 +204,11 @@ function dragend() {
 
 hintButton.addEventListener("mousedown", function () {
     if (rows === 3) {
-        completeImage.src = `../images/romanticism31.jpeg`;
+        completeImage.src = `./images/romanticism31.jpeg`;
     } else if (rows === 4) {
-        completeImage.src = `../images/romanticism41.jpg`;
+        completeImage.src = `./images/romanticism41.jpg`;
     } else if (rows === 5) {
-        completeImage.src = `../images/romanticism51.jpg`;
+        completeImage.src = `./images/romanticism51.jpg`;
     }
 
     container.style.display = "block";
