@@ -69,7 +69,7 @@ function generatePuzzle() {
     }
 
     for (let i = 0; i < rows * columns; i++) {
-        images.push("../images/" + prefix + (start + i).toString() + ".jpg");
+        images.push("./images/" + prefix + (start + i).toString() + ".jpg");
     }
 
     loadImages(images);
@@ -204,7 +204,7 @@ function dragend() {
 
 hintButton.addEventListener("mousedown", function () {
     if (rows === 3) {
-        completeImage.src = `../images/baroque31.jpeg`;
+        completeImage.src = `./images/baroque31.jpeg`;
     } else if (rows === 4) {
         completeImage.src = `../images/baroque41.jpeg`;
     } else if (rows === 5) {
