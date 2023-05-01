@@ -1,5 +1,7 @@
 /* ===== YOUR CSS GOES HERE ===== */
 /* ===== START WITH GLOBAL STYLES THEN USE MEDIA QUERIES FOR LAYOUT ADJUSTMENTS ===== */
+
+/* Global Styles */
 html {
   box-sizing: border-box;
 }
@@ -10,141 +12,140 @@ html {
   box-sizing: inherit;
 }
 
+/* Typography */
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=PT+Sans+Narrow&display=swap');
 
+/* Colors and variables */
 :root {
     --dark-red: #400303;
     --bright-red: #5B1212;
-    --yellow: #BF9825;
-    --font-size: 16px;
-    --line-height: 1.5;
+    --yellow: #daad26;
 }
 
+/* Body */
 body {
   background-color: var(--dark-red);
   padding: 60px;
 }
 
+
+/* Headers */
+h1, h2, h4 {
+  color: var(--yellow);
+  text-align: center;
+}
+h1 {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+h2 {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+h4 {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 24px;
+  font-weight: bold; 
+  margin-bottom: 30px;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-size: 30px;
+}
+
+/* Puzzle Game */
+#game-container {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
 #board {
   width: 360px;
   height: 360px;
   background-color: var(--bright-red);
   border: 10px solid var(--yellow);
+  position: relative;
 
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
-
+#hint-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+#hint-image {
+  width: 360px;
+  height: 360px;
+  object-fit: contain;
+  border: 10px solid var(--yellow);
+}
 #board img {
   width: 100%;
   height: 100%;
   border: 1px solid var(--yellow);
 }
-
-h1 {
-  color: var(--yellow);
-  text-transform: uppercase;
-  font-weight: bold;
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 60px;
-  text-align: center;
-  margin-bottom: 0px;
+#board.board-3x3 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
-
-h2 {
-  color: var(--yellow);
-  font-weight: bold;
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 30px;
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 40px;
+#board.board-4x4 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
-
-h4 {
-  margin-bottom: 30px;
-  font-family: 'PT Sans Narrow', sans-serif;
-  font-size: 24px;
-  font-weight: bold; 
+#board.board-5x5 {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
-
-a {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: var(--yellow);
-    font-size: 30px;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-}
-
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: flex-start;
 }
-
-nav li {
-  margin: 0 10px;
+nav li:first-child {
+  margin-right: auto;
 }
-
+nav li:not(:first-child) {
+  margin-left: 30px;
+}
 nav a {
   text-decoration: none;
   color: var(--yellow);
-  font-size: 30px;
+  font-size: 25px;
   text-transform: uppercase;
   font-family: 'Fredericka the Great', cursive;
   font-weight: bold;
 }
 
-nav a:hover {
-
-}
-
-.carousel-item {
-  text-align: center;
-  background-color: var(--bright-red);
-  border: 10px solid var(--yellow);
-  box-shadow: 0px 0px 20px var(--yellow);
-}
-
-.carousel-item:hover {
-  background-color: var(--yellow);
-  transform: scale(1.03); 
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.carousel-item:hover h4 {
-  color: var(--bright-red);
-  transform: scale(1.03); 
-}
-
-.art-periods-image {
-  width: 50%; 
-  height: auto; 
-  display: block;
-  margin: auto;
-  text-align: center;
-  box-shadow: 0px 0px 30px var(--yellow);
-}
-
-#slick-slide04.slick-slide.slick-active {
-  display: none;
-}
-
+/* Buttons */
 .button-container {
   display: flex;
   justify-content: center;
   margin-top: 30px;
 }
-
 button {
   background-color: var(--yellow);
   color: var(--dark-red);
@@ -157,25 +158,131 @@ button {
   text-transform: uppercase;
   transition: background-color 0.3s, color 0.3s;
 }
-
 button:hover {
   background-color: var(--bright-red);
   color: var(--yellow);
 }
 
-footer {
-  position: fixed;
-  right: 40px;
-  bottom: 40px;
-}
-
-.footer {
-  font-family: 'PT Sans Narrow', sans-serif;
+/* Footer */
+footer a {
+  font-family: 'Fredericka the Great', cursive;
   font-size: 30px;
+  text-transform: lowercase;
   color: var(--yellow);
   text-decoration: none;
 }
-
-.footer:hover {
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+footer a:not(:last-child) {
+  margin-right: 30px;
+}
+footer a:hover {
   text-decoration: underline;
+}
+
+/* Carousel */
+.carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.carousel-item {
+  text-align: center;
+  background-color: var(--bright-red);
+  border: 10px solid var(--yellow);
+  box-shadow: 0px 0px 20px var(--yellow);
+
+  flex: 1 0 calc(25% - 20px); 
+  max-width: calc(25% - 20px); 
+  margin-bottom: 20px;
+}
+.carousel-item:hover {
+  background-color: var(--yellow);
+  transform: scale(1.03); 
+  transition: background-color 0.3s, transform 0.3s;
+}
+.carousel-item:hover h4 {
+  color: var(--bright-red);
+  transform: scale(1.03); 
+}
+.art-periods-image { 
+  width: 80%;
+  height: auto; 
+  display: block;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0px 0px 30px var(--yellow);
+  margin-bottom: 40px;
+}
+
+/* Instruction */
+.instructions {
+  color: var(--yellow);
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  padding: 0 10px;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 1024px) {
+  .carousel-item {
+    flex: 1 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+  h1 {
+    font-size: 48px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  nav a {
+    font-size: 20px;
+  }
+  footer a {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .carousel-item {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
+  .art-periods-image {
+    width: 60%;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  nav a {
+    font-size: 16px;
+  }
+  footer a {
+    font-size: 16px;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  nav li:not(:first-child) {
+    margin-left: 0;
+  }
 }

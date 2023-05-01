@@ -20,13 +20,19 @@
         <li><a href="romanticism.html">Romanticism</a></li>
       </ul>
     </nav>
-    <div id="board">
+    <p class="instructions">Shift adjacent puzzle pieces to craft a masterpiece!</p>
+    <div id="game-container">
+      <div id="board" class="board-3x3"></div>
+      <div id="hint-image-container">
+        <img id="hint-image" src="" alt="complete image of the puzzle" />
+      </div>
     </div>
     <h1>Turns: <span id="turns">0</span></h1>
     <div class="button-container">
-      <button type="button" id="loadButton1">load image 1</button>
-      <button type="button" id="loadButton2">load image 2</button>
-      <button type="button" id="loadButton3">load image 3</button>
+      <button type="button" id="easy">easy</button>
+      <button type="button" id="medium">medium</button>
+      <button type="button" id="hard">hard</button>
+      <button type="button" id="hint">hint</button>
     </div>
   </body>
 </html>
