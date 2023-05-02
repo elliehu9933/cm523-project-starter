@@ -1,3 +1,5 @@
+/* used this helpful Youtube video as the starting point for the puzzle game design: https://www.youtube.com/watch?v=sD3Os4H_EOU&t=1s&ab_channel=KennyYipCoding */
+
 let rows;
 let columns;
 
