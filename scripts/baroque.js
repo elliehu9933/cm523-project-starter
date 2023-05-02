@@ -28,10 +28,19 @@ document.getElementById("medium").addEventListener("click", function () {
       columns = 4;
       generatePuzzle();
     } else {
-      alert(
-        "Oops! It looks like you haven't completed the easy mode yet. Give it another go, and you'll unlock the medium mode in no time!"
-      );
-    }
+      Swal.fire({
+        title: 'Oops!',
+        text: "It looks like you haven't completed the easy mode yet. Give it another go, and you'll unlock the medium mode in no time!",
+        icon: 'warning',
+        confirmButtonText: 'Ok',
+        customClass: {
+          container: 'swal-container',
+          title: 'swal-title',
+          content: 'swal-content',
+          icon: 'swal-icon',
+          confirmButton: 'swal-confirm-button'
+        }
+      });}      
   });
   
 document.getElementById("hard").addEventListener("click", function () {
@@ -40,10 +49,19 @@ document.getElementById("hard").addEventListener("click", function () {
       columns = 5;
       generatePuzzle();
     } else {
-      alert(
-        "Hold on! The hard mode is still locked. Make sure to conquer the medium mode first, and you'll be ready to take on the hardest challenges!"
-      );
-    }
+      Swal.fire({
+        title: 'Hold on!',
+        text: "The hard mode is still locked. Make sure to conquer the medium mode first, and you'll be ready to take on the hardest challenges!",
+        icon: 'warning',
+        confirmButtonText: 'Ok',
+        customClass: {
+          container: 'swal-container',
+          title: 'swal-title',
+          content: 'swal-content',
+          icon: 'swal-icon',
+          confirmButton: 'swal-confirm-button'
+        }
+      });}
   });
 
 function generatePuzzle() {
@@ -105,47 +123,77 @@ function loadImages(images) {
 };
   
 function checkCompletion() {
-    let tiles = document.querySelectorAll("#board img");
-    let isCompleted = true;
-    let start;
-  
-    if (rows === 3 && columns === 3) {
-      start = 101;
-    } else if (rows === 4 && columns === 4) {
-      start = 201;
-    } else if (rows === 5 && columns === 5) {
-      start = 301;
+  let tiles = document.querySelectorAll("#board img");
+  let isCompleted = true;
+  let start;
+
+  if (rows === 3 && columns === 3) {
+    start = 101;
+  } else if (rows === 4 && columns === 4) {
+    start = 201;
+  } else if (rows === 5 && columns === 5) {
+    start = 301;
+  }
+
+  tiles.forEach((tile, index) => {
+    let correctImg = "bar" + (index + start) + ".jpg";
+    let tileSrcFileName = tile.src.split("/").pop();
+    if (tileSrcFileName !== correctImg) {
+      isCompleted = false;
     }
-  
-    tiles.forEach((tile, index) => {
-        let correctImg = "bar" + (index + start) + ".jpg";
-        let tileSrcFileName = tile.src.split("/").pop();
-        if (tileSrcFileName !== correctImg) {
-          isCompleted = false;
+  });
+
+  if (isCompleted) {
+    if (rows === 3 && columns === 3) {
+      Swal.fire({
+        title: 'Awesome job!',
+        text: "You've successfully completed the easy mode. Time to move on to more challenging puzzles in the medium mode.",
+        icon: 'warning',
+        confirmButtonText: 'Ok',
+        customClass: {
+          container: 'swal-container',
+          title: 'swal-title',
+          content: 'swal-content',
+          icon: 'swal-icon',
+          confirmButton: 'swal-confirm-button'
         }
       });
-  
-    if (isCompleted) {
-      if (rows === 3 && columns === 3) {
-        alert(
-          "Awesome job! You've successfully completed the easy mode. Time to move on to more challenging puzzles in the medium mode."
-        );
-        completionStatus.easy = true;
-      } else if (rows === 4 && columns === 4) {
-        alert(
-          "Fantastic! You've completed the medium mode. Brace yourself for the ultimate challenge in the hard mode!"
-        );
-        completionStatus.medium = true;
-      } else if (rows === 5 && columns === 5) {
-        alert(
-          "Congratulations! You've conquered the hard mode. You're a true puzzle master!"
-        );
-      }
-      turns = 0;
-      document.getElementById("turns").innerText = turns;
+      completionStatus.easy = true;
+    } else if (rows === 4 && columns === 4) {
+      Swal.fire({
+        title: 'Fantastic!',
+        text: "You've completed the medium mode. Brace yourself for the ultimate challenge in the hard mode!",
+        icon: 'warning',
+        confirmButtonText: 'Ok',
+        customClass: {
+          container: 'swal-container',
+          title: 'swal-title',
+          content: 'swal-content',
+          icon: 'swal-icon',
+          confirmButton: 'swal-confirm-button'
+        }
+      });
+      completionStatus.medium = true;
+    } else if (rows === 5 && columns === 5) {
+      Swal.fire({
+        title: 'Congratulations!',
+        text: "You've conquered the hard mode. You're a true puzzle master!",
+        icon: 'warning',
+        confirmButtonText: 'Ok',
+        customClass: {
+          container: 'swal-container',
+          title: 'swal-title',
+          content: 'swal-content',
+          icon: 'swal-icon',
+          confirmButton: 'swal-confirm-button'
+        }
+      });
     }
+    turns = 0;
+    document.getElementById("turns").innerText = turns;
   }
-  
+}
+
 function dragstart() {
     currTile = this; //this refers to the img tile being dragged
 };
